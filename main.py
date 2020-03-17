@@ -26,12 +26,13 @@ def main():
                 # Checking if the number has already been calculated and is in the cache
                 if(db.get(pattern + number) is None):
                     print("--- Calculating factorial ---")
+                    result = factorial(int(number))
+                    print(result)
                     # Setting result in cache
-                    db[pattern + number] = factorial(int(number))
+                    db[pattern + number] = result
                 else:
                     print("--- Fetching result in cache ---")
-                # Fetching result in cache
-                print(db[pattern + number].decode())
+                    print(db[pattern + number].decode())
         except ValueError:
                 print("You didn't write non negative integer!")
 
